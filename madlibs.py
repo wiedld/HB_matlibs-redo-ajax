@@ -40,15 +40,17 @@ def show_game_question():
 @app.route('/madlib')
 def show_madlibs():
     print "show_game_form running"
-    nam = request.args.get("person")
+    name = request.args.get("person")
     col = request.args.get("favcolor")
     adj = request.args.get("adjective")
-    nou = request.args.get("noun")
+    noun = request.args.get("noun")
+    num = request.args.get("number")
     return render_template("madlibs.html", 
-        MLname=nam, 
+        MLname=name, 
         MLcolor=col, 
         MLadjective=adj, 
-        MLnoun=nou)
+        MLnoun=noun,
+        MLnum=num)
 
 
 if __name__ == '__main__':

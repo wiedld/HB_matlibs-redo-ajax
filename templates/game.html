@@ -7,9 +7,9 @@
         <p> Insert game here.</p>
 
         <form action="/madlib">
-            <label>Name a person:<input type="text" name="person" value="type here"></input></label><br />
+            <label>Name a person:<input type="text" name="person" required></input></label><br />
             <label>Pick a color:
-                <select name="favcolor">
+                <select name="favcolor" required>
                     <option value="red">Red</option>
                     <option value="blue">Blue</option>
                     <option value="green">Green</option>
@@ -18,10 +18,10 @@
                     <option value="chatruese">Chatruese</option>
                 </select>
             </label><br />
-            <label>Choose a noun:<input type="text" name="noun"></input></label><br />
-            <label>Last but not least, an adjective please:<input type="text" name="adjective"></input></label><br />
-
-            <label><input type="submit">
+            <label>Choose a noun:<input type="text" name="noun" required></input></label><br />
+            <label>Pick a number...any number!<input type="number" name="number" required></input></label><br />
+            <label>Last but not least, an adjective please:<input type="text" name="adjective" required></input></label><br />
+            <label><input type="submit" value="Let's play"></label> <label><input type="reset" value="Clear"></input></label>
         </form>
 
     </body>
