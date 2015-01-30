@@ -2,17 +2,43 @@
 <html>
     <head>
         <title>IT'S MAD!!</title>
+        <style>
+            #first{
+                display: none;
+            }
+            #second{
+                display: none;
+            }
+            #third{
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <h1>Lib it up!</h1>
 
-        <p>There once was a l33t programmer named {{  MLname  }},<br />
+        <p id="first">There once was a l33t programmer named {{  MLname  }},<br />
             who had {{  MLnum  }} cats and a dog. <br />
             Although many found her {{  MLadjective  }}, she was <br />
             better described as the {{  MLnoun  }}. <br />
             Fortunately, this was not a problem.  Because the <br />
             instructor, who had a {{  MLcolor  }} nose, was <br />
             even more extremely {{  MLadjective  }}.</p>
+        <p id="second"> second madlibs </p>
+        <p id="third">third madlibs</p>
+
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script>
+            var templateID = {{  MLtemplateID  }};
+            if (templateID == '1'){
+                $('#first').show();
+            } else if (templateID == '2'){
+                $('#second').show();
+            } else {
+                $('#third').show();
+            };
+
+        </script>
 
     </body>
 </html>

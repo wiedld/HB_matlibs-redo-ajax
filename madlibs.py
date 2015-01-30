@@ -1,4 +1,4 @@
-from random import choice
+from random import choice, randrange
 from flask import Flask, render_template, request
 
 
@@ -45,12 +45,16 @@ def show_madlibs():
     adj = request.args.get("adjective")
     noun = request.args.get("noun")
     num = request.args.get("number")
+    IDnum = str( randrange(1,4) )
+    print IDnum
+    print type(IDnum)
     return render_template("madlibs.html", 
         MLname=name, 
         MLcolor=col, 
         MLadjective=adj, 
         MLnoun=noun,
-        MLnum=num)
+        MLnum=num,
+        MLtemplateID = IDnum)
 
 
 if __name__ == '__main__':
