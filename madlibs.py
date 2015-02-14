@@ -1,52 +1,41 @@
 from random import choice, randrange
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, jsonify
 
 
 # "__name__" is a special Python variable for the name of the current module; Flask wants
 # to know this to know what any imported things are relative to.
 app = Flask(__name__)
 
-#  TRYING TO MAKE A GLOBAL VARIABLE, to use in routes.  NOT WORKING!!!
-#       use correct dictionary get method, based if request.method is "GET" or "POST".
-# dict_process = {"GET": request.args.get, "POST": request.form.get}
 
 
 # route to handle the landing page of a website.
 @app.route('/')
 def start_here():
-    print "loading index page"
     # return "Hi! This is the home page."
     return render_template("index.html")
 
 
-# route to display a simple web page
-@app.route('/hello')
-def say_hello():
-    print "running say_hello"
-    return render_template("hello.html")
 
-
-@app.route('/greet', methods=["GET","POST"])
+@app.route('/greet')
 def greet_person():
-    print "running greet_person"
-    #use correct dictionary get method, based if request.method is "GET" or "POST".
-    dict_process = {"GET": request.args.get, "POST": request.form.get}
-    player = dict_process[request.method]("person")
+    name = request.args.get("name")
     AWESOMENESS = [
         'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza', 'oh-so-not-meh',
         'brilliant', 'ducky', 'coolio', 'incredible', 'wonderful', 'smashing', 'lovely']
-    compliment = choice(AWESOMENESS)
-    return render_template("game_question.html", person=player, compliment=compliment)
+    greeting =  """Hi %s! I think you're %s! \n 
+        Do you want to play a game?""" % (name,choice(AWESOMENESS))
+    return greeting
 
 
-@app.route('/gameURL', methods=["GET","POST"])
+@app.route('/gameURL', methods=['POST'])
 def show_game_question():
-    print "show_game_question running"
-    dict_process = {"GET": request.args.get, "POST": request.form.get}
-    if (dict_process[request.method])("play_yes") == "True":
-        return render_template("game.html")
+    answer = request.form.get("play_yes")
+    print answer
+    if answer == "True":
+        game_or_goodbye = "play game!"
     else:
-        return render_template("goodbye.html")
+        game_or_goodbye = '<p>Sorry to see you go :( <br/> Come back and play soon, k?</p>'
+    return game_or_goodbye
 
 
 @app.route('/madlib', methods=["GET","POST"])
