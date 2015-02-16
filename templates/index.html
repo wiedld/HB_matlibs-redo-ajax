@@ -4,26 +4,37 @@
     <title>MadLibs-in-One!</title>
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 </head>
+
 <body>
     <h1>Be mad.....MAD!</h1>
     <br>
-    <!-- Below is the initial html on the index page.  All of this gets replaced using javascript in in the js file, AJAX, innerHTML, and may include flask calls with input returned (variables or json) from the controller madlibs.py -->
+    <!-- Below is the initial html on the index page.  All of this gets replaced using javascript in the js file, AJAX, innerHTML, and may include flask calls with input returned (variables or json) from the controller madlibs.py -->
 
-    <form id="msg-to-user">
+    <form id="content_form">
 
         <label id="current-task">
             <!-- Any forms will be populated here using Javascript, JQuery, and AJAX. -->
             Hi There!  What's your name? <input type='text' name='name' id='name-field'>
         </label>
 
-    <!-- All buttons for event handlers are here, but hidden.  Need to exist to event handlers link. -->
+    <!-- All buttons for event handlers are here, but hidden.  Need to exist at rendering, for the event handlers js connection to work. -->
         <button id='hello'>Submit</button>
         <button id='game' style='display:none'>To game, or not to game?</button>
+        <button id='madlibs_submit' style='display:none'>Let's Play!</button>   <button id='clear' style='display:none'><input type="reset" value="Clear"></button>
+        
     </form>
+
+    <br>
+    <br>
+    <br>
 
     <div id="madlib">
         <!-- Where the madlib passed back from the flask controller, as a string, will be placed. -->
     </div>
+    <br>
+    <form>
+        <button id='re_do' style='display:none'>Another Madlib!</button>
+    </form>
 
     <script src="/static/madlibs-scripts.js"></script>
 

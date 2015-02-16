@@ -1,0 +1,16 @@
+<div id="game_form">
+    <label>Name a person:<input type="text" name="person" required></input></label><br />
+    <label>Pick a color:
+        <select name="favcolor" required>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="aqua">Aqua</option>
+            <option value="fushia">Fushia</option>
+            <option value="chatruese">Chatruese</option>
+        </select>
+    </label><br />
+    <label>Choose a noun:<input type="text" name="noun" required></input></label><br />
+    <label>Pick a number...any number!<input type="number" name="number" required></input></label><br />
+    <label>Last but not least, an adjective please:<input type="text" name="adjective" required></input></label><br />
+</div>
